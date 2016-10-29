@@ -5,9 +5,9 @@ import java.sql.SQLException;
  * Created by Gabriel Gutierrez on 10/29/2016.
  */
 public class Account {
-    private String username;
-    private String password;
-    private String c_date;
+    private static String username;
+    private static String password;
+    private static String c_date;
 
     private DbConnection connection = new DbConnection();
 
