@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class HelloWorld {// extends Application {
     public static void main(String[] args) throws SQLException {
         //launch(args);
-        DbConnection connection = new DbConnection();
-        connection.StartConnection();
+        UserVerification userVer = new UserVerification("test", "test");
+        //connection.StartConnection();
 //        connection.CloseConnection();
 
 
