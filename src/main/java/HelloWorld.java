@@ -1,7 +1,7 @@
-import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 
 
 /**
@@ -10,7 +10,9 @@ import java.sql.SQLException;
 public class HelloWorld {// extends Application {
     public static void main(String[] args) throws SQLException {
         //launch(args);
-        UserVerification userVer = new UserVerification("test", "test");
+        Calendar today = Calendar.getInstance();
+        today.set(Calendar.HOUR_OF_DAY,0);
+        Account newAccount = new Account("gegutier", "123", today.toString());
         //connection.StartConnection();
 //        connection.CloseConnection();
 

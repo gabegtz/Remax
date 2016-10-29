@@ -3,11 +3,7 @@
  */
 import com.microsoft.sqlserver.jdbc.*;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DbConnection {
     Connection conn =null;
@@ -49,10 +45,10 @@ public class DbConnection {
         else{System.out.println("Connection is still open, dingus");}
     }
 
-    public ResultSet executeQuery(String statement) throws SQLException {
-        ResultSet results;
-
-        Statement stmt = startConnection().createStatement();
+  /*  public void executeQuery(PreparedStatement statement) throws SQLException {
+        PreparedStatement stmt = startConnection().prepareStatement(statement);
+        stmt.setString();
+        stmt.execute();
         results = stmt.executeQuery(statement);
         while (results.next()){
             System.out.println(results.getString(3));
@@ -63,6 +59,10 @@ public class DbConnection {
 
         return results;
 
+    }*/
+
+    public ResultSet obtainResults(String statement) throws SQLException{
+return null;
     }
 
 

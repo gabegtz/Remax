@@ -7,11 +7,10 @@ public class UserVerification {
 	DbConnection connection = new DbConnection();
 
 	public UserVerification(String username, String password) throws SQLException {
-		sql = "SELECT 1 FROM test_users WHERE username = '" + username + "' AND password = '" + password+"';";
-		//sql = "INSERT INTO test_users(username, password) VALUES ('Potato', 'Mr.');";
+		sql = "SELECT 1 FROM 'dbo.ACCOUNT' WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password+"';";
 		System.out.println(sql);
 		//connection.executeQuery(sql);
-		ResultSet userResult = connection.executeQuery(sql);
+		ResultSet userResult = connection.obtainResults(sql);
 
 		while (userResult.next()) {
 			System.out.println(userResult.getString("username"));
