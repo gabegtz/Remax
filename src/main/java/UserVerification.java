@@ -1,23 +1,25 @@
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class UserVerification {
 	String sql = null;
 
-	DbConnection connection = new DbConnection();
+	DbConnection dbHelp = new DbConnection();
+	Connection conn = dbHelp.startConnection();
 
 	public UserVerification(String username, String password) throws SQLException {
-		sql = "SELECT 1 FROM 'dbo.ACCOUNT' WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password+"';";
+		sql = "SELECT * FROM dbo.ACCOUNT WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password+"';";
 		System.out.println(sql);
-		//connection.executeQuery(sql);
-		ResultSet userResult = connection.obtainResults(sql);
-
-		while (userResult.next()) {
-			System.out.println(userResult.getString("username"));
-
+		Statement stmt = conn.createStatement();
+		ResultSet userResult = stmt.executeQuery(sql);
+		while(userResult.next()){
+			System.out.println(userResult.getString("USERNAME"));
 		}
+
 		try {
-			connection.CloseConnection();
+			dbHelp.CloseConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -7,14 +8,14 @@ import java.sql.SQLException;
 public class Account {
     private static String username;
     private static String password;
-    private static String c_date;
+    private static java.sql.Date c_date;
 
     private DbConnection connection = new DbConnection();
 
-    public Account(String username, String password, String c_date) throws SQLException {
-        username=this.username;
-        password=this.password;
-        c_date=this.c_date;
+    public Account(String username, String password, Date c_date) throws SQLException {
+        this.username=username;
+        this.password=password;
+        this.c_date = c_date;
         addToDatabase();
     }
 
@@ -25,7 +26,7 @@ public class Account {
         pstmt.setString(1, username);
         pstmt.setString(2, password);
         pstmt.setString(3, "Agent");
-        pstmt.setString(4, c_date);
+        pstmt.setDate(4, c_date);
         pstmt.execute();
         pstmt.close();
 
