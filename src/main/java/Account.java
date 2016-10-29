@@ -20,11 +20,12 @@ public class Account {
 
     private void addToDatabase() throws SQLException {
 
-        String newUser = "INSERT INTO ACCOUNT(USERNAME, PASSWORD, ROLE, CREATE_DATE)"+ "VALUES(?, ?, ?)";
+        String newUser = "INSERT INTO ACCOUNT(USERNAME, PASSWORD, ROLE, CREATE_DATE)"+ "VALUES(?, ?, ?, ?)";
         PreparedStatement pstmt = connection.startConnection().prepareStatement(newUser);
         pstmt.setString(1, username);
         pstmt.setString(2, password);
-        pstmt.setString(3, c_date);
+        pstmt.setString(3, "Agent");
+        pstmt.setString(4, c_date);
         pstmt.execute();
         pstmt.close();
 
