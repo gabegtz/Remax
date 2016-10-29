@@ -1,3 +1,7 @@
+package entities;
+
+import controllers.DbConnection;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,9 +23,9 @@ public class Account {
         addToDatabase();
     }
 
-    private void addToDatabase() throws SQLException {
+    public void addToDatabase() throws SQLException {
 
-        String newUser = "INSERT INTO ACCOUNT(USERNAME, PASSWORD, ROLE, CREATE_DATE)"+ "VALUES(?, ?, ?, ?)";
+        String newUser = "INSERT INTO ACCOUNT(USERNAME, PASSWORD, ROLE, CREATE_DATE) VALUES(?, ?, ?, ?)";
         PreparedStatement pstmt = connection.startConnection().prepareStatement(newUser);
         pstmt.setString(1, username);
         pstmt.setString(2, password);
@@ -29,10 +33,12 @@ public class Account {
         pstmt.setDate(4, c_date);
         pstmt.execute();
         pstmt.close();
+        connection.CloseConnection();
 
 
 
 
     }
+
 }
 
