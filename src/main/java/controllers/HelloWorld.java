@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.Agent;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,12 +27,15 @@ public class HelloWorld  extends Application {
         primaryStage.setTitle("DB Display");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        runTests();
     }
 
     private void runTests() throws SQLException {
         Date today = new Date(Calendar.getInstance().getTimeInMillis());
         //Account newAccount = new Account("gegutier", "123", today);
-        UserVerification uVer = new UserVerification("gegutier","123");
+       // UserVerification uVer = new UserVerification("gegutier","123");
+        Agent gabe = new Agent ("koloyede", "123", today);
 
         //connection.StartConnection();
         //        connection.CloseConnection();
