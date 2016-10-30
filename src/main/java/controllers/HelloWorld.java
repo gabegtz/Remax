@@ -23,8 +23,8 @@ public class HelloWorld  extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("main_screen.fxml"));
-        primaryStage.setTitle("DB Display");
+        Parent root = FXMLLoader.load(getClass().getResource("../main_screen.fxml")); //Defines filepath to FXML file.
+        primaryStage.setTitle("DB Display"); //
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
