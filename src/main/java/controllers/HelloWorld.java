@@ -1,6 +1,7 @@
 package controllers;
 
 import entities.Agent;
+import entities.Property;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,27 +17,42 @@ import java.util.Calendar;
  * Created by Gabriel Gutierrez on 10/4/2016.
  */
 public class HelloWorld  extends Application {
+
+
+    public static Stage stage;
+    public static boolean workaround;
     public static void main(String[] args) throws SQLException {
         launch(args);
 
+        hardCodedWorkaround();
+
     }
 
-    @Override
+   @Override // Main window deployment
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../main_screen.fxml")); //Defines filepath to FXML file.
-        primaryStage.setTitle("DB Display"); //
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+       Parent root = FXMLLoader.load(getClass().getResource("../AgentIDLogin.fxml")); //Defines filepath to FXML file.
+       primaryStage.setTitle("Remax Business Process"); //
+       primaryStage.setScene(new Scene(root));
+       primaryStage.show();
+       stage = primaryStage;
+   }
+       // runTests();
+   // }
 
-        runTests();
+    private static void hardCodedWorkaround(){
+        workaround = true;
+
+
+
     }
-
-    private void runTests() throws SQLException {
-        Date today = new Date(Calendar.getInstance().getTimeInMillis());
+    private static void runTests() throws SQLException {
+       // Date today = new Date(Calendar.getInstance().getTimeInMillis());
+        //Property UH = new Property("5236","Calhoun Rd.", 56000000, 2000);
         //Account newAccount = new Account("gegutier", "123", today);
        // UserVerification uVer = new UserVerification("gegutier","123");
-        Agent gabe = new Agent ("koloyede", "123", today);
-
+       // Agent gabe = new Agent ("fuckmicrosoft", "123", null);
+       // Property x = new Property ("12111", "Test Street", 77082);
+        ///x.addToDatabase();
         //connection.StartConnection();
         //        connection.CloseConnection();
 
@@ -44,4 +60,8 @@ public class HelloWorld  extends Application {
         //I've made a change.
 
     }
+
+
+
+
 }

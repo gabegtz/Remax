@@ -7,26 +7,19 @@ import java.sql.*;
 
 public class DbConnection {
     Connection conn =null;
-    CallableStatement cstmt = null;
-
-    ResultSet rs = null;
-
 
     public Connection startConnection(){
-
 
         SQLServerDataSource ds = new SQLServerDataSource();
         // ds.setIntegratedSecurity(true);
         // ds.setServerName("COT-CIS3365-06");
         // ds.setPortNumber(1433);
-        //ds.setDatabaseName("REMAX_BUSINESS_PROCESS");
+        ds.setDatabaseName("RDAP");
         ds.setUser("application");
         ds.setPassword("Gabodel8*");
+
         try {
             conn=ds.getConnection();
-
-
-
         } catch (SQLServerException e) {
             e.printStackTrace();
             System.out.println("Exception: " + e);
